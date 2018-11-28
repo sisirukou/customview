@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            app:title="@string/main_progressbar"
+            app:titleTextColor="#FFFFFF"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <TextView
+        android:id="@+id/tvProgreBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp20"
+        android:gravity="center_vertical"
+        android:text="测试"/>
+
+<com.customview.view.HomeWorkProgressBar
+    android:id="@+id/homeworkProgerssBar"
+    android:layout_width="@dimen/dp100"
+    android:layout_height="@dimen/dp100"
+    app:outerColorP="@color/c000000"
+    app:innerColorP="@color/cff0000"
+    app:stepTextSizeP="@dimen/sp20"
+    app:stepTextColorP="@color/cff0000"
+    app:borderWidthP="@dimen/dp10"/>
+
+    <TextView
+        android:id="@+id/tvLoading"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp80"
+        android:gravity="center_vertical"
+        android:text="测试"/>
+
+    <com.customview.view.HomeworkLoading
+        android:id="@+id/homeworkLoading"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="@dimen/dp20"
+        android:layout_gravity="center"
+        app:oneColor="@color/cff0000"
+        app:twoColor="@color/c000000"
+        app:threeColor="@color/c0000ff"/>
+
+
+</LinearLayout>

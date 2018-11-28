@@ -1,0 +1,15 @@
+1.自定义View的套路
+1.1 自定义属性，获取自定义属性（达到配置效果）
+1.2 onMeasure()方法，用于测量和计算自己的宽高，前提是继承系统已有的TextView，Button，不需要onMeasure(),已经实现好了
+1.3 onDraw()用于绘制自己的显示
+1.4 onTouch()用于与用户交互
+
+2. 自定义ViewGroup的套路
+2.1 自定义属性，获取自定义属性（达到配置效果）很少有
+2.2 onMeasure()方法，for循环测量子View，根据子View的宽高来计算自己的宽高
+2.3 onDraw()一般不需要，默认情况下是不会调用的，如果要绘制需要实现dispathDraw()方法
+2.4 onLayout()用来摆放子View，前提是，不是GONE的情况
+2.5 在很多情况下，不会继承自ViewGroup,往往继承系统以及提供好的ViewGroup,如ViewPager,ScrollVIew,RelativeLayout
+
+3.View的Touch事件
+

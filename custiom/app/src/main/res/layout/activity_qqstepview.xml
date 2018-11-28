@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            app:title="@string/main_qqstep"
+            app:titleTextColor="#FFFFFF"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:text="sldjflsdj"/>
+
+    <com.customview.view.QQStepView
+        android:id="@+id/stepView"
+        android:layout_width="@dimen/dp80"
+        android:layout_height="@dimen/dp80"
+        app:outerColor="@color/c0000ff"
+        app:innerColor="@color/cff0000"
+        app:borderWidth="@dimen/dp6"
+        app:stepTextColor="@color/cff0000"
+        app:stepTextSize="@dimen/sp20"/>
+
+</LinearLayout>

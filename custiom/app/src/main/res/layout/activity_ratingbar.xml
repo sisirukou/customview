@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            app:title="@string/main_ratingbar"
+            app:titleTextColor="#FFFFFF"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:text="sldjflsdj"/>
+
+    <com.customview.view.RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:gradeNumber="5"
+        app:starFocus="@mipmap/evaluate_select"
+        app:starNormal="@mipmap/evaluate_unselect"/>
+
+</LinearLayout>

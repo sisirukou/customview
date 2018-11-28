@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.customview.MainActivity"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            app:title="@string/app_name"
+            app:titleTextColor="#FFFFFF"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvQQStepView"-->
+        <!--style="@style/main_qqstep_textview"-->
+        <!--android:text="@string/main_qqstep"/>-->
+    <!--<TextView-->
+        <!--android:id="@+id/tvColorTrack"-->
+        <!--style="@style/main_qqstep_textview"-->
+        <!--android:text="@string/main_colortrack"/>-->
+    <!--<TextView-->
+        <!--android:id="@+id/tvHomeworkProgerssBar"-->
+        <!--style="@style/main_qqstep_textview"-->
+        <!--android:text="@string/main_progressbar"/>-->
+    <!--<TextView-->
+        <!--android:id="@+id/tvRatingBar"-->
+        <!--style="@style/main_qqstep_textview"-->
+        <!--android:text="@string/main_ratingbar"/>-->
+    <!--<TextView-->
+        <!--android:id="@+id/tvLetterSideBar"-->
+        <!--style="@style/main_qqstep_textview"-->
+        <!--android:text="@string/main_lettersidebar"/>-->
+    <!--<TextView-->
+        <!--android:id="@+id/tvTagLayout"-->
+        <!--style="@style/main_qqstep_textview"-->
+        <!--android:text="@string/main_taglayout"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tvKugouSlidMenu"-->
+    <!--style="@style/main_qqstep_textview"-->
+    <!--android:text="@string/main_kugou_slidmenu"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvQQSlidMenu"-->
+        <!--style="@style/main_qqstep_textview"-->
+        <!--android:text="@string/main_qq_slidmenu"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvDragHelper"-->
+        <!--style="@style/main_qqstep_textview"-->
+        <!--android:text="@string/main_draghelper"/>-->
+    <!--<TextView-->
+        <!--android:id="@+id/tvLockPattern"-->
+        <!--style="@style/main_qqstep_textview"-->
+        <!--android:text="@string/main_lockpattern"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvBehavior"-->
+        <!--style="@style/main_qqstep_textview"-->
+        <!--android:text="@string/main_behavior"/>-->
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">CustomView</string>
+    <string name="main_qqstep">仿QQ运动步数进度条</string>
+    <string name="main_progressbar">炫酷进度条</string>
+    <string name="main_colortrack">玩转字体变色</string>
+    <string name="colortrack_left_to_right">从左到右</string>
+    <string name="colortrack_right_to_left">从右到左</string>
+    <string name="main_ratingbar">仿淘宝评分</string>
+    <string name="main_lettersidebar">字母索引</string>
+    <string name="main_taglayout">流布局--</string>
+    <string name="main_kugou_slidmenu">仿酷狗侧滑</string>
+    <string name="main_qq_slidmenu">仿QQ侧滑</string>
+    <string name="main_draghelper">仿汽车之家列表菜单</string>
+    <string name="main_lockpattern">九宫格</string>
+    <string name="main_behavior">仿知乎首页滑动效果</string>
+    <string name="main_anima_58city">属性动画之-仿58同城加载动画</string>
+    <string name="main_listdata_screen">常见多条目菜单筛选</string>
+    <string name="main_loading_view">花束直播加载动画</string>
+    <string name="main_message_bubble">仿QQ消息拖拽效果</string>
+
+    <string name="taglayout_text1">流布局--</string>
+    <string name="taglayout_text2">流布局流布局--</string>
+    <string name="taglayout_text3">流布局流布局流布局--</string>
+    <string name="taglayout_text4">流布局流布局流布局流布局--</string>
+    <string name="taglayout_text5">流布局流布局流布局流布局流布局--</string>
+
+    <string name="kugousildmenu_content">主内容布局</string>
+    <string name="kugousildmenu_slid">侧边布局</string>
+
+    <string name="view_58city_laoding_text">玩命加载中...</string>
+    <string name="view_listdata_screen_text">内容页</string>
+
+
+</resources>

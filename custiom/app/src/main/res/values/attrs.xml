@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--仿QQ运动步数进度条-->
+    <declare-styleable name="QQStepView">
+        <attr name="outerColor" format="color"/>
+        <attr name="innerColor" format="color"/>
+        <attr name="borderWidth" format="dimension"/>
+        <attr name="stepTextSize" format="dimension"/>
+        <attr name="stepTextColor" format="color"/>
+    </declare-styleable>
+
+    <!--玩转字体变色-->
+    <declare-styleable name="ColorTrackTextView">
+        <attr name="originColor" format="color"/>
+        <attr name="changeColor" format="color"/>
+    </declare-styleable>
+
+    <!--作业-打造炫酷进度条-->
+    <declare-styleable name="HomeWorkProgressBar">
+        <attr name="outerColorP" format="color"/>
+        <attr name="innerColorP" format="color"/>
+        <attr name="borderWidthP" format="dimension"/>
+        <attr name="stepTextSizeP" format="dimension"/>
+        <attr name="stepTextColorP" format="color"/>
+    </declare-styleable>
+
+    <!--作业-打造炫酷进度条-->
+    <declare-styleable name="HomeworkLoading">
+        <attr name="oneColor" format="color"/>
+        <attr name="twoColor" format="color"/>
+        <attr name="threeColor" format="color"/>
+        <attr name="radius" format="dimension"/>
+    </declare-styleable>
+
+    <!--仿淘宝评分-->
+    <declare-styleable name="RatingBar">
+        <attr name="starNormal" format="reference"/>
+        <attr name="starFocus" format="reference"/>
+        <attr name="gradeNumber" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="KugouSlidMenu">
+        <attr name="menuRightMargin" format="dimension"/>
+    </declare-styleable>
+
+</resources>
