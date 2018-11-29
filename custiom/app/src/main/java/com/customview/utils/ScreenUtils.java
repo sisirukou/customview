@@ -23,4 +23,18 @@ public class ScreenUtils {
         int width=dm.widthPixels;//获取屏幕宽度(像素)
         return width;
     }
+
+    /**
+     * 获取状态栏高度
+     */
+    public static int getStatusBarHeight(Context Context){
+        int resourceId=Context.getResources().getIdentifier("status_bar_height","dimen","android");
+        if(resourceId>0){
+            //根据资源ID获取响应的尺寸
+            return Context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return (int)dip2px(Context,25);
+    }
+
+
 }
