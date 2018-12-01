@@ -1,6 +1,11 @@
 package com.customview.view;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -8,9 +13,12 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 
 import com.customview.listener.MessageBubbleTouchListener;
+import com.customview.utils.BubbleUtils;
 import com.customview.utils.ScreenUtils;
 
 /**
@@ -45,6 +53,11 @@ import com.customview.utils.ScreenUtils;
  *
  *   4.2 怎么实现贝塞尔
  *
+ *   4.3 自己做一个手机截屏的demo
+ *
+ *   4.4 拖动要回去，如果贝塞尔没消失就回弹
+ *   4.5 如果贝塞尔曲线消失，就爆炸
+ *
  *
  */
 public class MessageBubbleView extends View{
@@ -53,10 +66,12 @@ public class MessageBubbleView extends View{
 
     private int mDragRadius=10;//拖拽圆半径
 
-    private int mFixactionRadiusMax=7;//初始圆半径最大值
+    private int mFixactionRadiusMax=10;//初始圆半径最大值
     private int mFixactionRadiusMin=3;//初始圆半径最小值
 
     private int mFixactionRadius;//初始圆半径
+
+    private Bitmap mDragBitmap;
 
     private Paint mPaint;//画笔
 
@@ -92,13 +107,19 @@ public class MessageBubbleView extends View{
         //固定圆 有一个初始化大小，而且它的半径是随着距离的增大而减小，小到一定程度就不见了(不画了)
 
 
-        Path bezeierPath=getBezeierPath();
+        Path bezierPath=getBezeierPath();
 
-        if(null !=bezeierPath){//太小了就不画了
+        if(null !=bezierPath){//太小了就不画了
             //画圆
             canvas.drawCircle(mFixationPoint.x,mFixationPoint.y,mFixactionRadius,mPaint);
             //画贝塞尔曲线
-            canvas.drawPath(bezeierPath,mPaint);
+            canvas.drawPath(bezierPath,mPaint);
+
+        }
+
+        //画图片,位置也是手指移动的位置,中心位置才是手指拖动的位置
+        if(mDragBitmap!=null){
+            canvas.drawBitmap(mDragBitmap,mDragPoint.x-mDragBitmap.getWidth()/2,mDragPoint.y-mDragBitmap.getHeight()/2,null);
         }
 
     }
@@ -207,18 +228,71 @@ public class MessageBubbleView extends View{
         return new PointF((mDragPoint.x+mFixationPoint.x)/2,(mDragPoint.y+mFixationPoint.y)/2);
     }
 
-    public interface BubbleDisapperListener{
-        void dismiss(View view);
+    public void setDragBitmap(Bitmap dragBitmap) {
+        this.mDragBitmap = dragBitmap;
     }
+
 
     /**
      * 绑定可以拖拽的控件
      * @param view
      * @param disapperListener
      */
-    public static void attach(View view, BubbleDisapperListener disapperListener) {
+    public static void attach(View view, MessageBubbleTouchListener.BubbleDisapperListener disapperListener) {
         if(null!=view){
-            view.setOnTouchListener(new MessageBubbleTouchListener(view,view.getContext()));
+            view.setOnTouchListener(new MessageBubbleTouchListener(view,view.getContext(),disapperListener));
         }
+    }
+
+    /**
+     *处理手指是否回弹
+     */
+    public void handleActionUp() {
+        if(mFixactionRadius>mFixactionRadiusMin) {//回弹
+            //回弹 ValueAnimator 值变化的动画 0变化到1
+            ValueAnimator animator= ObjectAnimator.ofFloat(1,0);
+            animator.setDuration(250);
+            final PointF start=new PointF(mDragPoint.x,mDragPoint.y);
+            final PointF end=new PointF(mFixationPoint.x,mFixationPoint.y);
+            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float percent= (float) animation.getAnimatedValue();//0-1
+                    Log.e("TAG","percent->"+percent);
+                    PointF pointF= BubbleUtils.getPointByPercent(start,end,percent);
+                    //用代码更新拖拽点
+                    updateDragPoint(pointF.x,pointF.y);
+                }
+            });
+            animator.setInterpolator(new OvershootInterpolator());
+
+            //通知TouchListener，移除当前View,显示静态的View
+            animator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    if(null!= mListener){
+                        mListener.restore();
+                    }
+                }
+            });
+            animator.start();
+        }else{//爆炸
+            if(null!= mListener){
+                mListener.dismiss(mDragPoint);
+            }
+        }
+    }
+
+    private MessageBubbleListener mListener;
+
+    public void setMessageBubbleListener(MessageBubbleListener listener){
+        this.mListener=listener;
+    }
+
+    public interface MessageBubbleListener{
+        //还原
+        public void restore();
+        //爆炸消失
+        public void dismiss(PointF pointF);
     }
 }

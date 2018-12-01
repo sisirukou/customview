@@ -9,45 +9,48 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.customview.R;
-import com.customview.listener.MessageBubbleTouchListener;
-import com.customview.view.MessageBubbleView;
+import com.customview.view.LoveLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * des:
  * author: Yang Weisi
  * date 2018/10/31 13:12
  */
-public class MessageBubbleActivity extends AppCompatActivity{
+public class LoveLayoutActivity extends AppCompatActivity{
 
     @BindView(R.id.tvText)
     TextView tvText;
+
+    @BindView(R.id.loveView)
+    LoveLayout loveView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_message_bubble);
-
+        setContentView(R.layout.activity_lovelayout);
         ButterKnife.bind(this);
 
-        init();
+
     }
-
-    private void init() {
-        MessageBubbleView.attach(tvText, new MessageBubbleTouchListener.BubbleDisapperListener() {
-            @Override
-            public void dismiss(View view) {
-
-            }
-        });
-    }
-
 
     public static void launch(Context context){
-        Intent intent=new Intent(context, MessageBubbleActivity.class);
+        Intent intent=new Intent(context, LoveLayoutActivity.class);
         context.startActivity(intent);
+    }
+
+    @OnClick({R.id.tvText})
+    public void doOnClick(View view){
+        switch (view.getId()){
+            case R.id.tvText:
+                for(int i=0;i<15;i++){
+                    loveView.addLove();
+                }
+                break;
+        }
     }
 }

@@ -47,6 +47,10 @@
         </activity>
         <activity android:name=".activity.MessageBubbleActivity">
         </activity>
+        <activity android:name=".activity.LoveLayoutActivity">
+        </activity>
+        <activity android:name=".activity.ParallaxViewPagerActivity">
+        </activity>
     </application>
 
 </manifest>

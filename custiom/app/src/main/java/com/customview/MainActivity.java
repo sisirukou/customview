@@ -16,7 +16,9 @@ import com.customview.activity.LetterBarActivity;
 import com.customview.activity.ListDataScreenActivity;
 import com.customview.activity.LoadingViewActivity;
 import com.customview.activity.LockPatternActivity;
+import com.customview.activity.LoveLayoutActivity;
 import com.customview.activity.MessageBubbleActivity;
+import com.customview.activity.ParallaxViewPagerActivity;
 import com.customview.activity.QQSildMenuActivity;
 import com.customview.activity.QQStepViewActivity;
 import com.customview.activity.RatingBarActivity;
@@ -69,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
     String main_loading_view;
     @BindString(R.string.main_message_bubble)//仿QQ消息拖拽效果
     String main_message_bubble;
+    @BindString(R.string.main_love_layout)//花束直播点赞效果
+    String main_love_layout;
+    @BindString(R.string.main_parallax_viewpager)//酷狗音乐引导页
+    String main_parallax_viewpager;
+
 
     private List<MainDataBean> mDataList;
 
@@ -123,6 +130,10 @@ public class MainActivity extends AppCompatActivity {
                     LoadingViewActivity.launch(MainActivity.this);
                 }else if(14==position){
                     MessageBubbleActivity.launch(MainActivity.this);
+                }else if(15==position){
+                    LoveLayoutActivity.launch(MainActivity.this);
+                }else if(16==position){
+                    ParallaxViewPagerActivity.launch(MainActivity.this);
                 }
             }
         });
@@ -191,6 +202,14 @@ public class MainActivity extends AppCompatActivity {
         mData15.setId(15);
         mData15.setName(main_message_bubble);
         mDataList.add(mData15);
+        MainDataBean mData16=new MainDataBean();
+        mData16.setId(16);
+        mData16.setName(main_love_layout);
+        mDataList.add(mData16);
+        MainDataBean mData17=new MainDataBean();
+        mData17.setId(16);
+        mData17.setName(main_parallax_viewpager);
+        mDataList.add(mData17);
 
     }
 
