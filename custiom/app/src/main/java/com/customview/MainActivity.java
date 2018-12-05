@@ -23,6 +23,7 @@ import com.customview.activity.QQSildMenuActivity;
 import com.customview.activity.QQStepViewActivity;
 import com.customview.activity.RatingBarActivity;
 import com.customview.activity.TagLayoutActivity;
+import com.customview.activity.YahooActivity;
 import com.customview.adapter.MainAdapter;
 import com.customview.bean.MainDataBean;
 import com.customview.imp.OnItemClickListener;
@@ -75,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
     String main_love_layout;
     @BindString(R.string.main_parallax_viewpager)//酷狗音乐引导页
     String main_parallax_viewpager;
+    @BindString(R.string.main_yahoo)//雅虎新闻摘要加载
+    String main_yahoo;
 
 
     private List<MainDataBean> mDataList;
@@ -134,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
                     LoveLayoutActivity.launch(MainActivity.this);
                 }else if(16==position){
                     ParallaxViewPagerActivity.launch(MainActivity.this);
+                }else if(17==position){
+                    YahooActivity.launch(MainActivity.this);
                 }
             }
         });
@@ -207,9 +212,13 @@ public class MainActivity extends AppCompatActivity {
         mData16.setName(main_love_layout);
         mDataList.add(mData16);
         MainDataBean mData17=new MainDataBean();
-        mData17.setId(16);
+        mData17.setId(17);
         mData17.setName(main_parallax_viewpager);
         mDataList.add(mData17);
+        MainDataBean mData18=new MainDataBean();
+        mData18.setId(18);
+        mData18.setName(main_yahoo);
+        mDataList.add(mData18);
 
     }
 

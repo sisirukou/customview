@@ -51,6 +51,8 @@
         </activity>
         <activity android:name=".activity.ParallaxViewPagerActivity">
         </activity>
+        <activity android:name=".activity.YahooActivity">
+        </activity>
     </application>
 
 </manifest>

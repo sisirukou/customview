@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.customview.R;
+import com.customview.animation.LoveTypeEvaluator;
 
 import java.util.Random;
 

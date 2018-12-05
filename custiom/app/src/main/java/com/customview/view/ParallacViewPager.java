@@ -18,8 +18,17 @@ package com.customview.view;
  *         可扩展，可阅读性...
  *     2.2 实现确定：
  *         2.2.1 先把布局和Fragment创建好
+ *         2.2.2 把所有需要移动的属性解析出来(内涵段子，插件是换肤)
+ *               地址链接：https://www.jianshu.com/p/531d1168b3ee
+ *               其实就是View创建，我们自己来
+ *         2.2.3 监听滑动滚动改变位移
  *
  * 3.View拦截解析属性
+ * 4.知识点回忆
+ *   4.1 思考实现方式(架构思想)扩展
+ *   4.2 拦截布局解析创建
+ *   5.3 ViewPager的滑动监听
+ *   
  *
  */
 public class ParallacViewPager {

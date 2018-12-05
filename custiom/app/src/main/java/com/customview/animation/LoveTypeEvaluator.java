@@ -1,4 +1,4 @@
-package com.customview.view;
+package com.customview.animation;
 
 import android.animation.TypeEvaluator;
 import android.graphics.PointF;
