@@ -19,12 +19,14 @@ public class KugoSildMenuActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.activity_kugouslidmenu);
     }
 
 
     public static void launch(Context context){
         Intent intent=new Intent(context, KugoSildMenuActivity.class);
+
         context.startActivity(intent);
     }
 
